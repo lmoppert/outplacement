@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}
+  {{ object.number|stringformat:"02d" }} &ndash;
+  {{ object.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card my-4">
+        <div class="card-header">
+          <h5>Problem</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            {{ object.problem }}
+          </p>
+        </div>
+      </div>
+      <div class="card my-4">
+        <div class="card-header">
+          <h5>Aktion</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            {{ object.action }}
+          </p>
+        </div>
+      </div>
+      <div class="card my-4">
+        <div class="card-header">
+          <h5>Resultat</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            {{ object.result }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card my-4">
+        <div class="card-header">
+          <h5>Gezeigte Fähigkeiten</h5>
+        </div>
+        <ul class="list-group">
+          {% for skill in object.skills.all %}
+          <li class="list-group-item">
+            {{ skill.name }}
+          </li>
+          {% endfor %}
+        </ul>
+    </div>
+  </div>
+{% endblock content %}
+
+<!-- vim:ts=2:sw=2:sts=2:syn=htmldjango
+-->

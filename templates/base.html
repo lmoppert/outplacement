@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="de">
   <head>
@@ -14,8 +16,35 @@
       crossorigin="anonymous">
   </head>
   <body>
-    <main role="main" class="container">
-      <h1 class="display-4" id="pagetile">
+    <nav id="header" class="navbar navbar-expand-md navbar-light bg-light border-bottom fixed-top" role="navigation">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'img/logo.png' %}" alt="Moppert" style="height: 35px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="mainNav">
+          <ul class="navbar-nav mr-auto">
+            {% block navlinks %} 
+            <li class="nav-item homeLink mr-4" id="homeLink">
+              <a href="/par" class="nav-link">
+                Startseite
+              </a>
+            </li>
+            <li class="nav-item mr-4" id="adminLink">
+              <a href="/admin" class="nav-link">
+                Administration
+              </a>
+            </li>
+            {% endblock navlinks %} 
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main role="main" class="container" style="margin-top: 100px;">
+      <h1 id="pagetile">
         {% block pagetitle %}
         Outplacement Application
         {% endblock pagetitle %}
