@@ -3,18 +3,16 @@
 {% block pagetitle %}Liste der neuesten PARs{% endblock %}
 
 {% block content %}
-  <p>
-  <ul>
+  <ul class="list-group mt-5">
     {% for object in object_list %}
-    <li class="list-unstyled">
+    <li class="list-group-item">
       <a href="{{ object.get_absolute_url }}">
-        {{ object.number|stringformat:"02d" }} &ndash;
-        {{ object.name }}
+        {{ object.number|stringformat:"02d" }} &ndash; {{ object.name }}
+        <small class="text-muted">({{ object.company }})</small>
       </a>
     </li>
     {% endfor %}
   </ul>
-  </p>
 {% endblock content %}
 
 <!-- vim:ts=2:sw=2:sts=2:syn=htmldjango

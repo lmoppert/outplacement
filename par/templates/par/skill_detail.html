@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block content %}
-  <h3 class="mt-5 mb-3">Zugehörige PAR</h3>
-  <ul class="list-group">
+  <ul class="list-group mt-5">
     {% for par in object.par_set.all %}
     <li class="list-group-item">
     <a href="{{ par.get_absolute_url }}">
