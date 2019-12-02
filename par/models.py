@@ -1,5 +1,5 @@
 # from django.utils import timezone
-# from django.urls import reverse
+from django.urls import reverse
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -57,6 +57,9 @@ class PAR(models.Model):
 
     def skill_count(self):
         return self.skills.count()
+
+    def get_absolute_url(self):
+        return reverse('par-detail', args=[str(self.id)])
 
     def __str__(self):
         return "{:03d} - {}".format(self.number + 1, self.name)

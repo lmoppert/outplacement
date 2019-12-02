@@ -8,3 +8,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         return PAR.objects.all()[:10]
+
+
+class PARDetail(generic.DetailView):
+    model = PAR
