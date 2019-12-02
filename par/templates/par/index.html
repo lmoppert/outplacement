@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}Liste der neuesten PARs{% endblock %}
+
+{% block content %}
+  <p>
+  <ul>
+    {% for object in object_list %}
+    <li>{{ object.name }}</li>
+    {% endfor %}
+  </ul>
+  </p>
+{% endblock content %}
+
+<!-- vim:ts=2:sw=2:sts=2:syn=htmldjango
+-->
