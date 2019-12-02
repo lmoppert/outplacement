@@ -26,6 +26,9 @@ class Skill(models.Model):
         verbose_name = _("Skill")
         verbose_name_plural = _("Skills")
 
+    def get_absolute_url(self):
+        return reverse('skill-detail', args=[str(self.id)])
+
     def __str__(self):
         return "{}".format(self.name)
 
@@ -51,7 +54,7 @@ class PAR(models.Model):
                                 verbose_name=_("Company"))
 
     class Meta:
-        ordering = ['number']
+        ordering = ['-number']
         verbose_name = _("PAR")
         verbose_name_plural = _("PARs")
 

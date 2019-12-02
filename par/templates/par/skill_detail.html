@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}
+  {{ object.name }}
+{% endblock %}
+
+{% block content %}
+  <h3 class="mt-5 mb-3">Zugehörige PAR</h3>
+  <ul class="list-group">
+    {% for par in object.par_set.all %}
+    <li class="list-group-item">
+    <a href="{{ par.get_absolute_url }}">
+      {{ par.number|stringformat:"02d" }} &ndash; {{ par.name }}
+      <small class="text-muted">({{ par.company }})</small>
+    </a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
+
+<!-- vim:ts=2:sw=2:sts=2:syn=htmldjango
+-->
