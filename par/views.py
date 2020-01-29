@@ -14,5 +14,9 @@ class PARDetail(generic.DetailView):
     model = PAR
 
 
+class SkillList(generic.ListView):
+    model = Skill
+
+
 class SkillDetail(generic.DetailView):
     model = Skill
