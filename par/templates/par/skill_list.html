@@ -16,7 +16,9 @@
       </td>
       <td>
         {% for par in object.par_set.all %}
-          <a href="{{ par.get_absolute_url }}" class="mr-4">{{ par.id }}</a>
+          <a href="{{ par.get_absolute_url }}" class="mr-4">
+            {{ par.number|stringformat:"02d" }}
+          </a>
         {% endfor %}
       </td>
     </tr>
